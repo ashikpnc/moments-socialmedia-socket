@@ -24,7 +24,7 @@ const getUser = (userId) => {
 
 io.on("connection", (socket) => {
   //when connected
-  console.log("a user connected");
+  console.log("connected");
 
   //take userid socketid from user
   socket.on("addUser", (userId) => {
@@ -45,12 +45,13 @@ io.on("connection", (socket) => {
 
   //when disconnect
   socket.on("disconnect", () => {
+    console.log("disconnected");
     removeUser(socket.id);
     io.emit("getUsers", users);
   });
 });
 
-const PORT = 4000;
+const PORT = 5000;
 server.listen(PORT, () => {
   console.log(`server is running on port ${PORT}..`);
 });
