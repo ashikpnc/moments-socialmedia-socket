@@ -6,11 +6,12 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 const server = createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "*",
-  },
-});
+const io = new Server(server);
+// const io = new Server(server, {
+//   cors: {
+//     origin: "*",
+//   },
+// });
 
 let users = [];
 const addUser = (userId, socketId) => {
